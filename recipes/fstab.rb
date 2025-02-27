@@ -32,7 +32,7 @@ dev_shm_options.push('nosuid') if cisecurity['benchmarks_rule_Ensure_nosuid_opti
 
 mount '/dev/shm' do
   pass 0
-  device 'tmpfs'
+  device '/dev/shm'
   fstype 'tmpfs'
   options dev_shm_options.join(',')
   action [:mount, :enable]
