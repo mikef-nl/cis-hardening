@@ -337,3 +337,21 @@ bash 'reload_sysctl_system' do
   EOH
   action :nothing
 end
+
+# xccdf_org.cisecurity.benchmarks_rule_6.2.8_Ensure_root_PATH_Integrity
+
+directory '/root/.local/bin' do
+  owner 'root'
+  group 'root'
+  mode '0700'
+  action :create
+  only_if { cisecurity['benchmarks_rule_Ensure_root_PATH_integrity'] }
+end
+
+directory '/root/bin' do
+  owner 'root'
+  group 'root'
+  mode '0700'
+  action :create
+  only_if { cisecurity['benchmarks_rule_Ensure_root_PATH_integrity'] }
+end
