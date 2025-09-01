@@ -59,6 +59,28 @@ file '/etc/sudoers.d/CIS_1.3.3' do
   only_if { cisecurity['benchmarks_rule_Ensure_sudo_log_file_exists'] }
 end
 
+# xccdf_org.cisecurity.benchmarks_rule_1.5.1_Ensure_core_dump_storage_is_disabled
+
+append_if_no_line 'Ensure core dump storage is disabled - limits.conf' do
+  path '/etc/security/limits.conf'
+  line '* hard core 0'
+  only_if { cisecurity['benchmarks_rule_Ensure_core_dump_storage_is_disabled'] }
+end
+
+replace_or_add 'Ensure core dump storage is disabled- coredump.conf' do
+  path '/etc/systemd/coredump.conf'
+  pattern '#Storage=external'
+  line 'Storage=none'
+  only_if { cisecurity['benchmarks_rule_Ensure_core_dump_storage_is_disabled'] }
+end
+
+replace_or_add 'Ensure core dump storage is disabled- coredump.conf' do
+  path '/etc/systemd/coredump.conf'
+  pattern 'ProcessSizeMax=1G'
+  line 'ProcessSizeMax=0'
+  only_if { cisecurity['benchmarks_rule_Ensure_core_dump_storage_is_disabled'] }
+end
+
 # xccdf_org.cisecurity.benchmarks_rule_1.6.1_Ensure_core_dumps_are_restricted
 sysctl_items['fs.suid_dumpable'] = 0 if cisecurity['benchmarks_rule_Ensure_core_dumps_are_restricted']
 

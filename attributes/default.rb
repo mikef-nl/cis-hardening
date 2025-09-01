@@ -46,6 +46,7 @@ default['cis_compliance'].tap do |cis_compliance|
     cisecurity['benchmarks_rule_Ensure_authselect_includes_with-faillock'] = true
     cisecurity['benchmarks_rule_Ensure_bogus_ICMP_responses_are_ignored'] = true
     cisecurity['benchmarks_rule_Ensure_broadcast_ICMP_requests_are_ignored'] = true
+    cisecurity['benchmarks_rule_Ensure_core_dump_storage_is_disabled'] = true
     cisecurity['benchmarks_rule_Ensure_core_dumps_are_restricted'] = true
     cisecurity['benchmarks_rule_Ensure_default_user_shell_timeout_is_900_seconds_or_less'] = true
     # cisecurity['benchmarks_rule_Ensure_default_user_umask_is_027_or_more_restrictive'] = true
