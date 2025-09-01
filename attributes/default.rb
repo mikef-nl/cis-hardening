@@ -14,6 +14,7 @@ default['cis_compliance'].tap do |cis_compliance|
   cis_compliance['xccdf_org']['cisecurity'].tap do |cisecurity|
     cisecurity['benchmarks_rule_Create_custom_authselect_profile'] = true
     cisecurity['benchmarks_rule_Disable_USB_Storage'] = true
+    cisecurity['benchmarks_rule_Ensure_cryptographic_mechanisms_are_used_to_protect_the_integrity_of_audit_tools'] = true
     cisecurity['benchmarks_rule_Ensure_DCCP_is_disabled'] = true
     cisecurity['benchmarks_rule_Ensure_default_user_umask_is_configured'] = true
     cisecurity['benchmarks_rule_Ensure_ICMP_redirects_are_not_accepted'] = true

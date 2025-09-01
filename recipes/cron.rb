@@ -60,7 +60,3 @@ end
 file '/etc/cron.deny' do
   action :delete
 end
-
-package 'cronie' do
-  action :remove
-end
